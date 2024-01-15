@@ -19,7 +19,6 @@ mongoose.set("strictQuery", false);
 
 // Define the database URL to connect to.
 
-
 // Wait for database to connect, logging an error if there is a problem
 main().catch((err) => console.log(err));
 async function main() {
@@ -35,6 +34,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'dist')));
+// app.use('/output.css', express.static('dist'));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
