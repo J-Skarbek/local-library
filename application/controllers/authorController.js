@@ -1,4 +1,4 @@
-const Author = require('..models/author');
+const Author = require('../models/author');
 const asyncHandler = require('express-async-handler');
 
 //Display list of authors
@@ -22,7 +22,7 @@ exports.author_create_post = asyncHandler(async (req, res, next) => {
 })
 
 //Display Author delete form on GET
-exports.author_delete.get = asyncHandler(async (req, res, next) => {
+exports.author_delete_get = asyncHandler(async (req, res, next) => {
   res.send('NOT IMPLEMENTED: Author delete GET');
 })
 
