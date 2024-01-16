@@ -20,10 +20,11 @@ mongoose.set("strictQuery", false);
 // Define the database URL to connect to.
 
 // Wait for database to connect, logging an error if there is a problem
-main().catch((err) => console.log(err));
-async function main() {
-  await mongoose.connect(mongoDB);
-}
+
+// main().catch((err) => console.log(err));
+// async function main() {
+//   await mongoose.connect(mongoDB);
+// }
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
