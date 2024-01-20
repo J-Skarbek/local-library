@@ -1,23 +1,25 @@
 <html lang="en">
   <%- include('./partials/head.ejs') %>
   <body class="bg-red-100 text-4xl">
+    <%- include('./partials/navHeader.ejs') %>
     <h1 class="text-4xl my-4""><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <p class="text-4xl">Welcome to <%= title %></p>
     <p>This is the book list page</p>
     <ul>
-    
       <% if (book_list.length > 0) { %>
         <% book_list.forEach(book => { %>
           <li>
-            <p>
-              <a href="<%= book.url %>"><%= book.title %></a>
-            </p>
-            <p><%= book.author.name %></p>
+            <div class="flex-row">
+              <p>
+                <a href="<%= book.url %>"><%= book.title %></a>
+              </p>
+              <p><%= book.author.name %></p>
+            </div>
           </li>
           <% }) %>
         <% } else { %>
           <p>There are no books to display.</p>
-        <% }; %>
+      <% }; %>
     </ul>
   </body>
 </html>
