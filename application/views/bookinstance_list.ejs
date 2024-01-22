@@ -14,7 +14,7 @@
               <p>
                 <a href="<%= item.url %>"><%= item.title %></a>
               </p>
-              <p><%= item.title %></p>
+              <p><%= item.book.title || item.imprint %></p>
               <% if (item.status === 'Available') { %>
                 <p class="book-available"><%= item.status %></p>
               <% } else if (item.status === 'Maintenance') { %>
