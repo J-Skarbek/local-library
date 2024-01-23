@@ -1,50 +1,5 @@
-// const mongoose = require('mongoose');
-// const Schema = mongoose.Schema;
-
-// const AuthorSchema = new Schema({
-//   first_name: {
-//     type: String,
-//     required: true,
-//     maxLength: 100
-//   },
-//   family_name: {
-//     type: String,
-//     required: true,
-//     maxLength: 100
-//   },
-//   date_of_birth: {
-//     type: Date
-//   },
-//   date_of_death: {
-//     type: Date
-//   }
-// });
-
-// //Virutal property to construct author's full name
-// // without it being persisted to or commited to the db
-
-// AuthorSchema.virtual('name').get(function () {
-//   // We set the fullname to an empty string to avoid
-//   // potential errors if an author doesn't go by a first
-//   // or last name
-//   let fullName ='';
-//   if (this.first_name && this.family_name) {
-//     fullname = `${this.family_name}, ${this.first_name}`;
-//   }
-//   return fullName;
-// })
-
-// // This virtual create's the author's URL based on their
-// // mongo _id
-// AuthorSchema.virtual('url').get(function () {
-//   return `/catalog/author/${this._id}`;
-// })
-
-// module.exports = mongoose.model('author', AuthorSchema);
-
-
 const mongoose = require("mongoose");
-
+const { DateTime } = require("luxon");
 const Schema = mongoose.Schema;
 
 const AuthorSchema = new Schema({
@@ -71,6 +26,18 @@ AuthorSchema.virtual("url").get(function () {
   // We don't use an arrow function as we'll need the this object
   return `/catalog/author/${this._id}`;
 });
+
+AuthorSchema.virtual('birthday_formatted').get(function () {
+  return this.date_of_birth 
+  ? DateTime.fromJSDate(this.date_of_birth).toLocaleString(DateTime.DATE_MED)
+  : '';
+})
+
+AuthorSchema.virtual('deathday_formatted').get(function () {
+  return this.date_of_death 
+  ? DateTime.fromJSDate(this.date_of_death).toLocaleString(DateTime.DATE_MED)
+  : 'Present';
+})
 
 // Export model
 module.exports = mongoose.model("Author", AuthorSchema);
