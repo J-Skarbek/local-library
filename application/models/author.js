@@ -36,7 +36,7 @@ AuthorSchema.virtual('birthday_formatted').get(function () {
 AuthorSchema.virtual('deathday_formatted').get(function () {
   return this.date_of_death 
   ? DateTime.fromJSDate(this.date_of_death).toLocaleString(DateTime.DATE_MED)
-  : 'Present';
+  : '';
 })
 
 // Export model
