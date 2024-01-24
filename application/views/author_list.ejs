@@ -13,11 +13,7 @@
               <p>
                 <a href="<%= author.name %>"><%= author.name %></a>
               </p>
-              <% if (author.birthday_formmatted == false || author.deathday_formatted == false) { %>
-                <p>Author life dates unknown.</p>
-              <% } else { %>
-                <p><%= author.birthday_formatted %> - <%= author.deathday_formatted == true ? author.deathday_formatted : ''; %></p>
-              <% }; %>
+                <p><%= author.birthday_formatted %> - <%= author.deathday_formatted !== '' ? author.deathday_formatted : ''; %></p>
             </div>
           </li>
           <% }) %>
