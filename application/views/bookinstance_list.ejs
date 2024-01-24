@@ -11,9 +11,9 @@
           <li>
             <div class="flex-row">
               <p>
-                <a href="<%= item.url %>"><%= item.title %></a>
+                <a href="<%= item.url %>"><%= item.book.title %></a>
               </p>
-              <p><%= item.book.title || item.imprint %></p>
+              <p><%= item.book.title %> || <%= item.imprint %></p>
               <% if (item.status != 'Available') { %>
                 <p class="book-is-out">Due Back On: <%= item.due_back_formatted %></p>
               <% } else { %>
