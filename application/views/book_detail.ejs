@@ -1,0 +1,40 @@
+<html lang="en">
+  <%- include('./partials/head.ejs') %>
+  <body class="bg-red-100 text-4xl">
+    <%- include('./partials/navHeader.ejs') %>
+    <h1 class="text-4xl my-4""><%= book.title %></h1>
+    <h2>By: <%= book.author.name %></h2>
+    <p class="book-summary">
+      <%= book.summary %>
+    </p>
+    <p class="book-isbn">
+      <%= book.isbn %>
+    </p>
+    <div class="genre">
+      <ul>
+        
+      </ul>
+    </div>
+    <ul>
+      <% if (genre_books.length > 0) { %>
+        <% genre_books.forEach(book => { %>
+          <li>
+            <div class="flex-row">
+              <div class="flex-column padding-custom">
+                <p>
+                  <a href="<%= book.url %>"><%= book.title %></a>
+                </p>
+                <p class="book-summary">
+                  <%= book.summary %>
+                </p>
+              </div>
+             
+            </div>
+          </li>
+          <% }) %>
+        <% } else { %>
+          <p>There are no books in this genre to display.</p>
+      <% }; %>
+    </ul>
+  </body>
+</html>
