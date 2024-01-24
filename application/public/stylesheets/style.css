@@ -35,3 +35,10 @@ h1 {
   font-weight: 800;
 }
 
+.flex-column {
+  flex-direction: column;
+}
+
+.padding-custom {
+  padding: 2% 1%;
+}
