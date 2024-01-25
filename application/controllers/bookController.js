@@ -30,7 +30,6 @@ exports.index = asyncHandler(async (req, res, next) => {
     author_count: numAuthors,
     genre_count: numGenres
   });
-
   // res.send("NOT IMPLEMENTED: Site Home Page");
 });
 

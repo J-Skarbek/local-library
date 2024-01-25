@@ -12,29 +12,20 @@
     </p>
     <div class="genre">
       <ul>
-        
+        <% if (book.genre.length > 0) { %>
+          <% book.genre.forEach(genre => { %>
+            <li><%= genre %></li>
+            <% })}; %>
       </ul>
     </div>
-    <ul>
-      <% if (genre_books.length > 0) { %>
-        <% genre_books.forEach(book => { %>
-          <li>
-            <div class="flex-row">
-              <div class="flex-column padding-custom">
-                <p>
-                  <a href="<%= book.url %>"><%= book.title %></a>
-                </p>
-                <p class="book-summary">
-                  <%= book.summary %>
-                </p>
-              </div>
-             
-            </div>
-          </li>
-          <% }) %>
-        <% } else { %>
-          <p>There are no books in this genre to display.</p>
-      <% }; %>
-    </ul>
+    <div class="copies-in-stock">
+      <ul>
+      <% if (book_instances.length > 0) { %>
+        <% book_instances.forEach(book => { %>
+          <li><% book.title %> Will add status here.</li>
+        <% }); %>
+      <% } %>
+      </ul>
+    </div>
   </body>
 </html>
