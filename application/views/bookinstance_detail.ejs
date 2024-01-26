@@ -1,0 +1,33 @@
+<html lang="en">
+  <%- include('./partials/head.ejs') %>
+  <body class="bg-red-100 text-4xl book-details-page">
+    <%- include('./partials/navHeader.ejs') %>
+    <h1 class="text-4xl my-4""><%= title %></h1>
+    <!-- <h2>By: <%=// book.author.name %></h2> -->
+    <p class="book-summary">
+      <a href="<%= bookinstance.book.url %>"><%= bookinstance.book.title %></a>
+    </p>
+    <p class="imprint-info">
+      <span style="font-weight: 700;">Imprint:</span> 
+      <%= bookinstance.imprint %>
+    </p>
+    <div class="copies-in-stock">
+      <h3 class="in-stock">Books in Stock:</h3>
+      <%  if (bookinstance.status === 'Available') { %>
+        <p class="book-available"><%= bookinstance.status %></p>
+      <% } else if (bookinstance.status === 'Maintenance' || bookinstance.status === 'Loaned') { %>
+        <p class="book-not-available"><%= bookinstance.status %></p>
+      <% } %>
+      <p class="book-id-info">
+        <span style="font-weight: 700;">Book ID:</span> 
+        <%= bookinstance.id %>
+      </p>
+      <% if (bookinstance.status != 'Available') { %>
+        <p class="book-id-info">
+          <span style="font-weight: 700;">Due Back:</span> 
+          <%= bookinstance.due_back_formatted %>
+        </p>
+      <% }; %>
+    </div>
+  </body>
+</html>
