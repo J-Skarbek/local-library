@@ -72,3 +72,24 @@ h1 {
   margin: 10px 0;
 }
 
+.book-status-container {
+  padding: 15px 0;
+  margin: 10px 0;
+  border-bottom: 1px solid black;
+}
+
+.book-status-container li {
+  margin-bottom: 10px;
+}
+
+.book-status-container p {
+  margin-bottom: 3px;
+}
+
+.book-available {
+  color: green;
+}
+
+.book-not-available {
+  color: red
+}

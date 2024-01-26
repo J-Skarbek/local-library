@@ -23,10 +23,34 @@
       <h3 class="in-stock">Books in Stock:</h3>
       <ul>
       <% if (book_instances.length > 0) { %>
-        <% book_instances.forEach(book => { %>
-          <li><% book.title %> Will add status here.</li>
+        <% book_instances.forEach(bookInstance => { %>
+          <div class="book-status-container flex">
+            <% if (bookInstance.status === 'Available') { %>
+              <li class="book-available"><%= bookInstance.status %></li>
+            <% } else if (bookInstance.status === 'Maintenance') { %>
+              <li class="book-not-available"><%= bookInstance.status %></li>
+            <% } else if (bookInstance.status === 'Loaned') { %>
+              <li class="book-not-available"><%= bookInstance.status %></li>
+            <% } %>
+            <p class="imprint-info">
+              <span style="font-weight: 700;">Imprint:</span> 
+              <%= bookInstance.imprint %>
+            </p>
+            <p class="book-id-info">
+              <span style="font-weight: 700;">Book ID:</span> 
+              <%= bookInstance.id %>
+            </p>
+            <% if (bookInstance.status != 'Available') { %>
+              <p class="book-id-info">
+                <span style="font-weight: 700;">Due Back:</span> 
+                <%= bookInstance.due_back_formatted %>
+              </p>
+            <% } %>
+          </div>  
         <% }); %>
-      <% } %>
+      <% } else { %>
+        <p class="no-books">There's no books to display.</p>
+        <% } %>
       </ul>
     </div>
   </body>
