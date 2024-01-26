@@ -42,3 +42,33 @@ h1 {
 .padding-custom {
   padding: 2% 1%;
 }
+
+.book-details-page h1,
+.book-details-page h2 {
+  font-size: 2rem;
+}
+
+.book-details-page h2 {
+  margin-bottom: 25px;
+}
+
+.book-details-page p {
+  width: 750px;
+  margin-bottom: 25px;
+}
+
+.book-details-page .genre-heading,
+.book-details-page .in-stock {
+  font-size: 1.5rem;
+  margin-bottom: 5px;
+}
+
+.book-details-page li {
+  font-size: 1.1rem;
+  margin-bottom: 3px;
+}
+
+.copies-in-stock {
+  margin: 10px 0;
+}
+

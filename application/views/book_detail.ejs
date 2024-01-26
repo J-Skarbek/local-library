@@ -1,6 +1,6 @@
 <html lang="en">
   <%- include('./partials/head.ejs') %>
-  <body class="bg-red-100 text-4xl">
+  <body class="bg-red-100 text-4xl book-details-page">
     <%- include('./partials/navHeader.ejs') %>
     <h1 class="text-4xl my-4""><%= book.title %></h1>
     <h2>By: <%= book.author.name %></h2>
@@ -11,6 +11,7 @@
       <%= book.isbn %>
     </p>
     <div class="genre">
+      <h3 class="genre-heading">Genre:</h3>
       <ul>
         <% if (book.genre.length > 0) { %>
           <% book.genre.forEach(genre => { %>
@@ -19,6 +20,7 @@
       </ul>
     </div>
     <div class="copies-in-stock">
+      <h3 class="in-stock">Books in Stock:</h3>
       <ul>
       <% if (book_instances.length > 0) { %>
         <% book_instances.forEach(book => { %>
