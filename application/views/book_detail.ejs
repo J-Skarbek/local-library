@@ -27,9 +27,7 @@
           <div class="book-status-container flex">
             <% if (bookInstance.status === 'Available') { %>
               <li class="book-available"><%= bookInstance.status %></li>
-            <% } else if (bookInstance.status === 'Maintenance') { %>
-              <li class="book-not-available"><%= bookInstance.status %></li>
-            <% } else if (bookInstance.status === 'Loaned') { %>
+            <% } else if (bookInstance.status === 'Maintenance' || bookInstance.status === 'Loaned') { %>
               <li class="book-not-available"><%= bookInstance.status %></li>
             <% } %>
             <p class="imprint-info">
@@ -50,7 +48,7 @@
         <% }); %>
       <% } else { %>
         <p class="no-books">There's no books to display.</p>
-        <% } %>
+      <% } %>
       </ul>
     </div>
   </body>
