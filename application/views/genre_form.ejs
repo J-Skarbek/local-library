@@ -4,5 +4,25 @@
     <%- include('./partials/navHeader.ejs') %>
     <h1 class="text-4xl my-4""><%= title %></h1>
     <p class="text-4xl">Welcome to <%= title %></p>
+
+    <h2>Use the form below to create a Genre!</h2>
+
+    <form action="/genre/create" method="post">
+      <label for="name">Genre:</label>
+      <input 
+        type="text" 
+        id="name" 
+        class="form-control" 
+        placeholder="Fantasy, Poetry, etc." 
+        required 
+        value="<%= undefined === genre ? '' : genre.name %>">
+        <button type="submit">Submit</button>
+    </form>
+    <% if (errors) { %>
+      <ul class="error-list">
+        <% errors.forEach(error_logged => { %>
+          <li><%= error_logged %></li>
+        <% }); %>
+    <% } %>
   </body>
 </html>
