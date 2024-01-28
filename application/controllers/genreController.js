@@ -42,7 +42,6 @@ exports.genre_create_get = (req, res, next) => {
 };
 
 // Handle Genre create on POST.
-
 exports.genre_create_post = [
   //Validate and sanitize the name field
   body('name', 'Genre name must contain at least three characters!')
@@ -85,9 +84,9 @@ exports.genre_create_post = [
   }),
 ];
 
-exports.genre_create_post = asyncHandler(async (req, res, next) => {
-  res.send("NOT IMPLEMENTED: Genre create POST");
-});
+// exports.genre_create_post = asyncHandler(async (req, res, next) => {
+//   res.send("NOT IMPLEMENTED: Genre create POST");
+// });
 
 // Display Genre delete form on GET.
 exports.genre_delete_get = asyncHandler(async (req, res, next) => {
