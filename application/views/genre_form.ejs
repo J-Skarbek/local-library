@@ -7,6 +7,7 @@
 
     <h2>Use the form below to create a Genre!</h2>
 
+
     <form action="/genre/create" method="post">
       <label for="name">Genre:</label>
       <input 
@@ -15,14 +16,9 @@
         class="form-control" 
         placeholder="Fantasy, Poetry, etc." 
         required 
-        value="<%= undefined === genre ? '' : genre.name %>">
+        value="<% if (genre == undefined) return '' %>">
         <button type="submit">Submit</button>
     </form>
-    <% if (errors) { %>
-      <ul class="error-list">
-        <% errors.forEach(error_logged => { %>
-          <li><%= error_logged %></li>
-        <% }); %>
-    <% } %>
+   
   </body>
 </html>
